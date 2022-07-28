@@ -3,7 +3,7 @@ package leetcode;
 public class LeetCode33_SearchinRotatedSortedArray {
     public static void main(String[] args) {
         //int[] nums = {4, 5, 6, 7, 0, 1, 2};
-        int[] nums = {1,3,5};
+        int[] nums = {1,3};
         int target = 3;
 
         System.out.println(search(nums, target));
