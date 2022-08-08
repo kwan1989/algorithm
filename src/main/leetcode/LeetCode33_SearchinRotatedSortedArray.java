@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
+ * Binary Search
+ *
  * https://leetcode.com/problems/search-in-rotated-sorted-array/
  * <p>
  * There is an integer array nums sorted in ascending order (with distinct values).
