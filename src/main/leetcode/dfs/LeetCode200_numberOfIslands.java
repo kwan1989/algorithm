@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.dfs;
 
 /**
  * https://leetcode.com/problems/number-of-islands/

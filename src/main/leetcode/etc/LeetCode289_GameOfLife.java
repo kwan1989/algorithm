@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.etc;
 
 /**
  * https://leetcode.com/problems/game-of-life/
