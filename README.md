@@ -1,7 +1,7 @@
 ## LeetCode - 70. Climbing Stairs(DP)
 ### 문제 및 풀이 주소
 [LeetCode](https://leetcode.com/problems/climbing-stairs/)  
-[Git Solution](https://github.com/mertyn88/algorithm/blob/feature/longestincreasing/src/com/algorithm/leetcode/longestincreasing/Solution.java)
+[Git Solution](https://github.com/kwan1989/algorithm/blob/main/src/main/leetcode/dp/LeetCode70_ClimbingStairs.java)
 
 ### 문제 설명 - 영문
 >You are climbing a staircase. It takes n steps to reach the top.
