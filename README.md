@@ -1,3 +1,71 @@
+## LeetCode - 179. Largest Number
+### 문제 및 풀이 주소
+[LeetCode](https://leetcode.com/problems/largest-number/description/)  
+[Git Solution](https://github.com/kwan1989/algorithm/blob/main/src/main/leetcode/greedy/LeetCode179_LargestNumber.java)
+
+### 문제 설명 - 영문
+>Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+Since the result may be very large, so you need to return a string instead of an integer.
+
+### 문제 설명 - 번역
+>음수가 아닌 정수 목록이 주어지면 nums가장 큰 수를 형성하도록 배열하고 반환합니다.
+결과가 매우 클 수 있으므로 정수 대신 문자열을 반환해야 합니다.
+
+
+예 1:
+>입력: 숫자 = [10,2]  
+> 출력: "210"
+
+예 2:
+>입력: 숫자 = [3,30,34,5,9]  
+> 출력: "9534330"
+
+제약조건
+* 1 <= nums.length <= 100
+* 0 <= nums[i] <= 109
+
+<details>
+ <summary>풀이 보기</summary>
+ <div markdown="16">
+
+### 문제 해결
+문자열로 변환 후 우선순위(정렬)를 매기는 방안을 생각했다.
+
+```java
+        Arrays.stream(Arrays.stream(nums)
+                            .mapToObj(String::valueOf)
+                            .toArray(String[]::new))
+                .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2))
+```
+
+
+#### 전체코드
+```java
+    public String largestNumber(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+
+        Arrays.stream(Arrays.stream(nums)
+                            .mapToObj(String::valueOf)
+                            .toArray(String[]::new))
+            .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2))
+            .forEach(sb::append);
+
+    return sb.toString().startsWith("0") ? "0" : sb.toString();
+    }
+```
+
+### 테스트 결과
+[LeetCode Result](https://leetcode.com/problems/largest-number/submissions/936260710/)
+
+
+### 후기
+오랜만이야 알고리즘.
+
+</div>
+</details>
+
+---
+
 ## LeetCode - 70. Climbing Stairs(DP)
 ### 문제 및 풀이 주소
 [LeetCode](https://leetcode.com/problems/climbing-stairs/)  
