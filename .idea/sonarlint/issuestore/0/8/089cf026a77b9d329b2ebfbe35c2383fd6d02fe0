@@ -1,9 +1,0 @@
-
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¤Ž›Ô
-f
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(»Ùýˆ
-P
-java:S1118":Add a private constructor to hide the implicit public one.(¤Ž›Ô
-T
-java:S1155">Use isEmpty() to check whether the collection is empty or not.(Ýå‚·
-V	java:S125#"<This block of commented-out lines of code should be removed.(µŽ®Òýÿÿÿÿ
