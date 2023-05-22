@@ -1,0 +1,9 @@
+
+J
+java:S1066@"/Merge this if statement with the enclosing one.(·þÎŒùÿÿÿÿ
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ð–ô!
+P
+java:S1854$":Remove this useless assignment to local variable "result".(ö¢øÞ
+Q	java:S125!"<This block of commented-out lines of code should be removed.(–Þõ¹
+A
+java:S1481$"+Remove this unused "result" local variable.(ö¢øÞ

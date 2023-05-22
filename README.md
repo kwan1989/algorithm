@@ -104,7 +104,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 
 ### 문제 해결
 정답을 찾는데 좀 헤매게 되었다. 결과 값으로만 값을 도출하고 패턴이 피보나치란 판단이 들어 피보나치로 풀게 되었음.
-보통 피보나치를 푸는데 있어 `recursion` 으로 많이 푸는데 앞선 배열값을 가지고 다음 값을 연산하는 방식을 `memoization` 을 통해 계산 이미 저장된 값을 이용하므로 재사용 최적화 기법사용
+보통 피보나치를 푸는데 있어 `recursion` 으로 많이 푸는데 앞선 배열값을 가지고 다음 값을 연산하는 방식인 `memoization`을 통해 계산 이미 저장된 값을 이용하므로 재사용 최적화 기법사용
 
 >i 는 인덱스 값이며 해당 위치마다 값을 찾는다.
 ```java
@@ -113,7 +113,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
         dp[1] = 2;
 
         for (int i = 2; i < n; i++) {
-        dp[i] = dp[i - 2] + dp[i - 1];
+            dp[i] = dp[i - 2] + dp[i - 1];
         }
 ```
 DP를 접근하는데는 두가지 방식있는데, `Top-Down` 과 `Bottom-Up` 이 있다.

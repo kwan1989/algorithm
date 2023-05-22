@@ -1,0 +1,6 @@
+
+t
+java:S1488M"^Immediately return this expression instead of assigning it to the temporary variable "answer".(Т┤зк
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(▓ щ╪■    
+h
+java:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(█щ┘ъ
