@@ -32,7 +32,6 @@ public class LeetCode94_BinaryTreeInorderTraversal {
         t1.left = t2;
 
         inorderTraversal(root);
-
     }
 
     public static List<Integer> inorderTraversal(TreeNode root) {
@@ -44,15 +43,20 @@ public class LeetCode94_BinaryTreeInorderTraversal {
 
     public static void helper(TreeNode root, List<Integer> res) {
         if (root != null) {
+
+            // 전위
             if (root.left != null) {
                 helper(root.left, res);
             }
+
+            // 중위
             res.add(root.val);
+
+            // 후위
             if (root.right != null) {
                 helper(root.right, res);
             }
+
         }
     }
-
-
 }
