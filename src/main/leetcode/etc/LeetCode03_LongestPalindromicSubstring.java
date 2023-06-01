@@ -1,34 +1,63 @@
 package leetcode.etc;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LeetCode03_LongestPalindromicSubstring {
 
-    static int resultStartIndex;
-    static int resultLength;
-
     public static void main(String[] args) {
+        String s = "abcabcbb";
+        String s1 = "bbbbb";
+        String s2 = "pwwkew";
+        String s3 = "aaaabaaaaaa";
+        String s4 = "abb";
 
-        String s = "babad";
-//        String s = "cbbd";
-//        String s = "a";
-//        String s = "ac";
+        System.out.println(lengthOfLongestSubstring(s4));
+//        System.out.println(lengthOfLongestSubstring_builder(s));
+//        System.out.println(lengthOfLongestSubstring(s1));
+//        System.out.println(lengthOfLongestSubstring(s2));
+    }
 
-        boolean[][] dp = new boolean[s.length()][s.length()];
-        int start = 0, end = 0;
-        for (int i = 0; i < s.length(); i++) {
-            dp[i][i] = true;
-        }
-        for (int i = s.length() - 2; i >= 0; i--) {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s.charAt(j) == s.charAt(i))
-                    if (dp[i + 1][j - 1] || j - i == 1) {
-                        dp[i][j] = true;
-                    }
-                if (dp[i][j] && j - i > end - start) {
-                    end = j;
-                    start = i;
-                }
+    public static int lengthOfLongestSubstring(String s) {
+        int prev = 0;
+        int idx = 0;
+        int max = 0;
+
+        Set<Character> set = new HashSet<>();
+
+        while (idx < s.length()) {
+            if (!set.contains(s.charAt(idx))) {
+                set.add(s.charAt(idx));
+                max = Math.max(max, set.size());
+                idx++;
+            } else {
+                set.remove(s.charAt(prev));
+                prev++;
             }
         }
-        System.out.println(s.substring(start, end + 1));
+
+        return max;
+    }
+
+    public static int lengthOfLongestSubstring_builder(String s) {
+
+        StringBuilder builder = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++)
+        {
+            for (int j = i; j < s.length(); j++)
+            {
+                if (builder.indexOf(s.charAt(j) +"") != -1)
+                {
+                    break;
+                }
+                builder.append(s.charAt(j));
+            }
+
+            count = Math.max(count, builder.length());
+            builder.setLength(0);
+        }
+
+        return count;
     }
 }
