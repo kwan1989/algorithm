@@ -67,8 +67,6 @@ N
 src/main/leetcode/bfs/bfs.java,1/a/1a42ffcbbbb5c986af9dadde7d14d0f2ac552bfe
 d
 4src/main/leetcode/greedy/LeetCode322_CoinChange.java,7/5/754a6b206c0f684eaf654492e20dd4a6c4553e5b
-h
-8src/main/leetcode/stack/LeetCode20_ValidParentheses.java,5/7/5754ad9d734895691e781e859672568e6c9f3649
 Z
 *src/main/programmers/dfs_타겟넘버.java,2/1/2166c54062a478e5191e1df24b5084e5ba83e26e
 d
