@@ -43,8 +43,6 @@ Z
 *src/main/programmers/dfs_단어변환.java,b/3/b360e3f659ccbf2742c852d76bbea9ea119962c6
 Z
 *src/main/programmers/dfs_여행경로.java,d/0/d03366cba46370da51c9be17bbf214e52c6d4ccd
-_
-/src/main/leetcode/dp/LeetCode139_WordBreak.java,7/d/7df59a324e217bc2289857a4d6cb8c1a191d0aac
 f
 6src/main/leetcode/dfs/LeetCode200_numberOfIslands.java,7/0/70c4e83ff967aaa758f17394dabe570a663f9879
 p
