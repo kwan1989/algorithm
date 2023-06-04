@@ -44,10 +44,13 @@ public class LeetCode153_FindMinimuminRotatedSortedArray {
     public static int[] rotate(int[] nums, boolean directionRight, int count){
         int[] temp = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
+
+            int point = (i + count) % nums.length;
+
             if (directionRight){
-                temp[(i + count) % nums.length] = nums[i];
+                temp[point] = nums[i];
             } else {
-                temp[i] = nums[(i + count) % nums.length];
+                temp[i] = nums[point];
             }
         }
         return temp;
