@@ -16,6 +16,10 @@ public class LeetCode06_ZigZagConversion {
 
     public static String convert(String s, int numRows) {
 
+        if (numRows == 1) {
+            return s;
+        }
+
         String[] numStr = new String[numRows];
         String[] spt = s.split("");
         int numRow = 0;
@@ -35,7 +39,6 @@ public class LeetCode06_ZigZagConversion {
                 numRow--;
             }
 
-
             if (numRow == numStr.length - 1) {
                 isPlus = false;
             }
@@ -47,7 +50,7 @@ public class LeetCode06_ZigZagConversion {
         for (String str : numStr) {
             result += str;
         }
-
         return result;
     }
+
 }
