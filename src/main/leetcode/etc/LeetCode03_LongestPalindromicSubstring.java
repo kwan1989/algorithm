@@ -26,8 +26,10 @@ public class LeetCode03_LongestPalindromicSubstring {
         Set<Character> set = new HashSet<>();
 
         while (idx < s.length()) {
-            if (!set.contains(s.charAt(idx))) {
-                set.add(s.charAt(idx));
+
+            char add = s.charAt(idx);
+
+            if (set.add(add)) {
                 max = Math.max(max, set.size());
                 idx++;
             } else {
@@ -43,12 +45,9 @@ public class LeetCode03_LongestPalindromicSubstring {
 
         StringBuilder builder = new StringBuilder();
         int count = 0;
-        for (int i = 0; i < s.length(); i++)
-        {
-            for (int j = i; j < s.length(); j++)
-            {
-                if (builder.indexOf(s.charAt(j) +"") != -1)
-                {
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                if (builder.indexOf(s.charAt(j) + "") != -1) {
                     break;
                 }
                 builder.append(s.charAt(j));
