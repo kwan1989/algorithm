@@ -31,8 +31,6 @@ Z
 *src/main/programmers/dfs_단어변환.java,b/3/b360e3f659ccbf2742c852d76bbea9ea119962c6
 Z
 *src/main/programmers/dfs_여행경로.java,d/0/d03366cba46370da51c9be17bbf214e52c6d4ccd
-l
-<src/main/leetcode/dijkstra/LeetCode743_NetworkDelayTime.java,8/6/86a6d2b7d34a17a2bb6f353403cd037ae841b09c
 N
 src/main/leetcode/bfs/bfs.java,1/a/1a42ffcbbbb5c986af9dadde7d14d0f2ac552bfe
 d
