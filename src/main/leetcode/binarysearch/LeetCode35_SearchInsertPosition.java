@@ -17,7 +17,7 @@ public class LeetCode35_SearchInsertPosition {
         int right = nums.length - 1;
 
         while (left <= right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
 
             if (nums[mid] == target) {
                 return mid;
@@ -28,6 +28,6 @@ public class LeetCode35_SearchInsertPosition {
             }
         }
 
-        return right+1;
+        return right + 1;
     }
 }
