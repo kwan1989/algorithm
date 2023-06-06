@@ -42,8 +42,8 @@ public class LeetCode1091_ShortestPathinBinaryMatrix {
         }
 
         visited[row][col] = true;
-
         int minDistance = Integer.MAX_VALUE;
+
         for (int direction = 0; direction < DR.length; direction++) {
             int newRow = row + DR[direction];
             int newCol = col + DC[direction];
@@ -54,6 +54,7 @@ public class LeetCode1091_ShortestPathinBinaryMatrix {
                     && grid[newRow][newCol] != 1
             ) {
                 int distance = dfs(grid, newRow, newCol, visited);
+
                 if (distance != -1) {
                     minDistance = Math.min(minDistance, distance + 1);
                 }

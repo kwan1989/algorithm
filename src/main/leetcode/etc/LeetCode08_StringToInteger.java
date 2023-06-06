@@ -1,5 +1,9 @@
 package leetcode.etc;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class LeetCode08_StringToInteger {
 
     public static void main(String[] args) {
@@ -7,7 +11,7 @@ public class LeetCode08_StringToInteger {
         //int result = myAtoi("4193 with words");
         //int result = myAtoi("   -42");
         //int result = myAtoi("words and 987");
-        int result = myAtoi("-91283472332");
+//        int result = myAtoi("-91283472332");
 
         //int result = myAtoi("3.14159");
         //int result = myAtoi("-");
@@ -16,7 +20,61 @@ public class LeetCode08_StringToInteger {
         //int result = myAtoi("  -0012a42");
 
         //int result = myAtoi("20000000000000000000");
-        System.out.println(result);
+//        System.out.println(result);
+
+
+        System.out.println(myAtoi_retry("42"));
+        System.out.println(myAtoi_retry(" -42"));
+        System.out.println(myAtoi_retry("4193 with words"));
+        System.out.println(myAtoi_retry("words and 987"));
+        System.out.println(myAtoi_retry("-91283472332"));
+        System.out.println(myAtoi_retry("3.14159"));
+        System.out.println(myAtoi_retry("+-12"));
+
+    }
+
+    public static int myAtoi_retry(String s) {
+        s = s.trim();
+        boolean isNegative = s.contains("-");
+        boolean isNumberEnd = false;
+        if (!checkedFirst(s)) {
+            return 0;
+        }
+
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                stringBuilder.append(s.charAt(i));
+                isNumberEnd = true;
+            } else if(isNumberEnd && !Character.isDigit(s.charAt(i))){
+                break;
+            }
+        }
+
+
+        try {
+            int result = Integer.parseInt(stringBuilder.toString());
+            return isNegative ? -result : result;
+        } catch (NumberFormatException e) {
+            // 정수로 변환할 수 없는 경우
+            return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        }
+    }
+
+    public static boolean checkedFirst(String s) {
+        char first = s.charAt(0);
+
+        if (Character.isDigit(first)) {
+            return true;
+        }
+
+        if (first == '-' || first == '+') {
+            return true;
+        }
+
+        return false;
     }
 
     public static int myAtoi(String s) {
@@ -33,9 +91,9 @@ public class LeetCode08_StringToInteger {
 
             //isPositive = s.charAt(i) == '+' ? true: false;
 
-            if ( s.charAt(i) == '+'){
+            if (s.charAt(i) == '+') {
                 isPositive = true;
-            } else{
+            } else {
                 isPositive = false;
             }
 
@@ -45,10 +103,10 @@ public class LeetCode08_StringToInteger {
         while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') {
             int digital = s.charAt(i++) - '0';
 
-            if (isPositive && result <= (Integer.MAX_VALUE - digital)/10) {
+            if (isPositive && result <= (Integer.MAX_VALUE - digital) / 10) {
                 result = result * 10 + digital;
 
-            } else if (!isPositive && result >= (Integer.MIN_VALUE + digital)/10) {
+            } else if (!isPositive && result >= (Integer.MIN_VALUE + digital) / 10) {
                 result = result * 10 - digital;
 
             } else {

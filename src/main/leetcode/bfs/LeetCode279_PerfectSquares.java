@@ -30,7 +30,7 @@ import java.util.Queue;
 public class LeetCode279_PerfectSquares {
 
     public static void main(String[] args) {
-        int result = numSquares(13);
+        int result = numSquares(12);
     }
 
     public static int numSquares(int n) {
@@ -44,7 +44,6 @@ public class LeetCode279_PerfectSquares {
 
             // 여기서 변수로 정의해주지 않으면 큐의 사이즈는 자꾸 변경되기 때문에 문제가됨
             int len = q.size();
-            //System.out.println("qSize : " + q.size() + " / len : " + len);
 
             for (int i = 0; i < len; i++) {
                 int num = q.poll();
@@ -57,12 +56,6 @@ public class LeetCode279_PerfectSquares {
                         return depth;
                     }
                     q.offer(curr);
-//                    System.out.println("len : " + len
-//                            +" depth : " + depth
-//                            + " / curr : " + curr
-//                            + " / " + num
-//                            + " - " + j
-//                            + " * " + j);
                 }
             }
         }

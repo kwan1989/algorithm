@@ -41,7 +41,20 @@ public class LeetCode07_ReverseInteger {
             System.out.println("r:" + r + " / num:" + num);
         }
 
-        return (int)r;
+        return (int) r;
 
     }
+
+    public static int reverse_operation2(int num) {
+
+        long curr = 0;
+
+        while (num != 0) {
+            curr = curr * 10 + num % 10;
+            num /= 10;
+        }
+
+        return (int) curr;
+    }
+
 }
