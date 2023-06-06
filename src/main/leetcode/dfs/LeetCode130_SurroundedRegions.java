@@ -34,7 +34,11 @@ public class LeetCode130_SurroundedRegions {
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                if ((i == 0 || i == board.length - 1 || j == 0 || j == board[0].length - 1) && !visited[i][j]) {
+                if ((i == 0
+                        || i == board.length - 1
+                        || j == 0
+                        || j == board[0].length - 1)
+                        && !visited[i][j]) {
                     preDfs(board, visited, i, j);
                 }
             }

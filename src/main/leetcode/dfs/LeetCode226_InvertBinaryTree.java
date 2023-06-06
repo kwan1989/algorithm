@@ -1,7 +1,5 @@
 package leetcode.dfs;
 
-import java.util.Arrays;
-
 public class LeetCode226_InvertBinaryTree {
 
     public static class TreeNode {
@@ -57,4 +55,5 @@ public class LeetCode226_InvertBinaryTree {
 
         return root;
     }
+
 }
