@@ -31,30 +31,33 @@ public class LeetCode94_BinaryTreeInorderTraversal {
         root.right = t1;
         t1.left = t2;
 
-        inorderTraversal(root);
+        System.out.println(inorderTraversal(root));
     }
 
     public static List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        helper(root, res);
-        System.out.println(res);
+        dfs(root, res);
         return res;
     }
 
-    public static void helper(TreeNode root, List<Integer> res) {
+    public static void dfs(TreeNode root, List<Integer> res) {
         if (root != null) {
 
             // 전위
             if (root.left != null) {
-                helper(root.left, res);
+                dfs(root.left, res);
             }
 
-            // 중위
+            /*
+                중위
+                전위 앞에 있으면 전위 표기법
+                후위 뒤에 있으면 후위 표기법
+             */
             res.add(root.val);
 
             // 후위
             if (root.right != null) {
-                helper(root.right, res);
+                dfs(root.right, res);
             }
 
         }
