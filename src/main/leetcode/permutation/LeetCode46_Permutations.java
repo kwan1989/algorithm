@@ -18,7 +18,7 @@ public class LeetCode46_Permutations {
         List<List<Integer>> result = new ArrayList<>();
 
         for (int length = 1; length <= nums.length; length++) {
-            permutation(nums, new ArrayList<>(), result,length);
+            permutation(nums, new ArrayList<>(), result, length);
         }
 
         return result;

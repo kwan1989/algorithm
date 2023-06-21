@@ -1,7 +1,5 @@
 package leetcode.etc;
 
-import java.math.BigInteger;
-
 public class LeetCode172_FactorialTrailingZeroes {
 
     public static void main(String[] args) {
@@ -41,7 +39,6 @@ public class LeetCode172_FactorialTrailingZeroes {
      * 15!	            3
      * 20!	            4
      * 24!	            4
-     * 25!	            6
      * 25!	            6
      * 30!	            7
      * 50!	            12
