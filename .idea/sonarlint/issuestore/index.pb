@@ -23,8 +23,6 @@ Z
 *src/main/programmers/dfs_단어변환.java,b/3/b360e3f659ccbf2742c852d76bbea9ea119962c6
 Z
 *src/main/programmers/dfs_여행경로.java,d/0/d03366cba46370da51c9be17bbf214e52c6d4ccd
-h
-8src/main/leetcode/stack/LeetCode20_ValidParentheses.java,5/7/5754ad9d734895691e781e859672568e6c9f3649
 m
 =src/main/leetcode/dp/LeetCode435_NonOverlappingIntervals.java,f/3/f383ee75f93a4ca0263e706d7b84f6f16056d9e9
 c
@@ -69,8 +67,6 @@ d
 4src/main/leetcode/greedy/LeetCode322_CoinChange.java,7/5/754a6b206c0f684eaf654492e20dd4a6c4553e5b
 _
 /src/main/leetcode/dp/LeetCode139_WordBreak.java,7/d/7df59a324e217bc2289857a4d6cb8c1a191d0aac
-d
-4src/main/leetcode/stack/LeetCode71_SimplifyPath.java,5/e/5e317489e45a3f8e31e2cd462ca245c7b86fdec8
 j
 :src/main/leetcode/stack/LeetCode739_DailyTemperatures.java,6/2/62f6dbb740944d733d7b4dc19ff3a4890d0028bc
 h
@@ -147,10 +143,6 @@ _
 /src/main/leetcode/etc/LeetCode155_MinStack.java,7/8/78dbf12c3bbdacb9c81cbcef66fe046c0f900422
 e
 5src/main/leetcode/etc/LeetCode08_StringToInteger.java,d/6/d6fba9b3750bf948a6fb2e3d2eb9e62c5464675b
-c
-3src/main/livecodingtest/kakaomobility/process1.java,a/0/a07889eb4d615e9269b3a9faa9515e000b830bf0
-c
-3src/main/livecodingtest/kakaomobility/process2.java,1/5/158bf52ee5c83c774aac11506cf64d58a09bcdd8
 d
 4src/main/leetcode/etc/LeetCode07_ReverseInteger.java,b/9/b95cbd9b0d9050e2f94fa00426c92f3fad4077f8
 X
