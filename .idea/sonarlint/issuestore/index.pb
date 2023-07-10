@@ -93,8 +93,6 @@ o
 .src/main/leetcode/dfs/LeetCode55_JumpGame.java,6/9/695b6ba7fd92c638aa9467a563bc7aae4024ad8b
 v
 Fsrc/main/leetcode/permutation/LeetCode1220_CountVowelsPermutation.java,7/3/7347065d25686357ecf6f42949804baeac5a977a
-j
-:src/main/leetcode/permutation/LeetCode46_Permutations.java,7/4/74d94565b3bf8315827eee3d4bc43f4a72237dfb
 r
 Bsrc/main/leetcode/bfs/LeetCode1091_ShortestPathinBinaryMatrix.java,f/a/fa1724f9a02b2af24250fc80d769c0ac0602757b
 o
@@ -109,10 +107,6 @@ Bsrc/main/leetcode/bfs/LeetCode637_AverageofLevelsinBinaryTree.java,6/f/6f8e5e1
 0src/main/leetcode/bfs/LeetCode733_FloodFill.java,c/d/cd5109f08c5a6ea9c5e79972ba62b646e336b757
 e
 5src/main/leetcode/bfs/LeetCode279_PerfectSquares.java,2/e/2ef9b55e471a8ad2c4bd8635cc6bf2fecb5d0f9a
-`
-0src/main/leetcode/bfs/LeetCode79_WordSearch.java,5/6/56d9eafdbadf6a09c724b2c821858b6e778142a4
-S
-#src/main/leetcode/bfs/bfsRetry.java,c/7/c789a0d279e505bec5b8add12385d0cb86742bdf
 f
 6src/main/leetcode/bfs/LeetCode463_IslandPerimeter.java,7/4/7449881718da78ac6f854af6e0288a842adf81d2
 _
