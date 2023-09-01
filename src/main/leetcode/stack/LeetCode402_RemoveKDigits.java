@@ -1,7 +1,6 @@
 package leetcode.stack;
 
 import java.util.Stack;
-import java.util.stream.Collectors;
 
 public class LeetCode402_RemoveKDigits {
 
@@ -40,7 +39,6 @@ public class LeetCode402_RemoveKDigits {
                 k--;
             }
             stack.push(chaNumber);
-
         }
 
         // 전체 순환을 했음에도 k 가 0보다 클 경우
