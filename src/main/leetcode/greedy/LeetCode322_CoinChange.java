@@ -1,6 +1,7 @@
 package leetcode.greedy;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class LeetCode322_CoinChange {
     public static void main(String[] args) {
@@ -41,6 +42,10 @@ public class LeetCode322_CoinChange {
 //    public static int coinChange(int[] coins, int amount) {
 //
 //        Arrays.sort(coins);
+//        Integer[] boxingCoins = Arrays.stream(coins)
+//                .boxed()
+//                .sorted(Collections.reverseOrder())
+//                .toArray(Integer[]::new);
 //
 //        int count = 0;
 //

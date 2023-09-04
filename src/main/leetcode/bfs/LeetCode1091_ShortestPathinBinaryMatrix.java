@@ -3,6 +3,9 @@ package leetcode.bfs;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 이 문제가 BFS 공부하기에 가장 좋은것 같다.
+ */
 public class LeetCode1091_ShortestPathinBinaryMatrix {
 
     public static void main(String[] args) {

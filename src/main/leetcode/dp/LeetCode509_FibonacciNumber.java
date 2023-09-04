@@ -3,7 +3,7 @@ package leetcode.dp;
 public class LeetCode509_FibonacciNumber {
 
     public static void main(String[] args) {
-        int n = 0;
+        int n = 10;
         System.out.println(fib(n));
     }
 
