@@ -22,7 +22,7 @@ public class LeetCode208_ImplementTrie {
 
         temp.insert(word1);
         System.out.println(temp.startsWith("TE"));
-        System.out.println(temp.search(word1));
+//        System.out.println(temp.search(word1));
     }
 
 
