@@ -131,6 +131,7 @@ public class LeetCode224_BasicCalculator {
 
     /**
      * 리트코드 해답
+     *
      * @param s
      * @return
      */
@@ -152,21 +153,21 @@ public class LeetCode224_BasicCalculator {
             } else if (c == '-') {
                 result += sign * num;
                 num = 0;
-                sign= -1;
+                sign = -1;
             } else if (c == '(') {
                 stack.push(result);
                 stack.push(sign);
 
                 // Reset the temporary variables
-                result=0;
-                sign=1;
+                result = 0;
+                sign = 1;
             } else if (c == ')') {
-                result+=sign*num;
-                num=0;
+                result += sign * num;
+                num = 0;
 
                 // Pop the previous sign and result from the stack
-                result*=stack.pop();
-                result+=stack.pop();
+                result *= stack.pop();
+                result += stack.pop();
             }
         }
 

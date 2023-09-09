@@ -20,6 +20,7 @@ public class LeetCode239_SlidingWindowMaximum {
 
     /**
      * 해답을 보았다.
+     *
      * @param nums
      * @param k
      * @return
@@ -34,13 +35,13 @@ public class LeetCode239_SlidingWindowMaximum {
 
         for (int i = 0; i < nums.length; i++) {
             // 현재 윈도우 범위를 벗어난 요소 제거
-            if (!deque.isEmpty() && deque.peekFirst() == i - k){
+            if (!deque.isEmpty() && deque.peekFirst() == i - k) {
                 deque.poll();
             }
 
             // 현재 윈도우 내에서 nums[i]보다 작은 요소들 제거.
             // 이들은 최대값이 될 수 없으므로 필요하지 않습니다.
-            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
                 deque.removeLast();
             }
 
@@ -58,6 +59,7 @@ public class LeetCode239_SlidingWindowMaximum {
 
     /**
      * Time Limit Exceeded
+     *
      * @param nums
      * @param k
      * @return
@@ -77,4 +79,5 @@ public class LeetCode239_SlidingWindowMaximum {
 
         return result;
     }
+
 }
