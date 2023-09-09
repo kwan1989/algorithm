@@ -41,5 +41,20 @@ public class permutation {
         }
     }
 
+    public static void permutation1(int[] nums, List<Integer>curr, List<List<Integer>> result, int length){
+
+        if (curr.size() == length){
+            result.add(new ArrayList<>(curr));
+        } else {
+            for(int num : nums){
+                if (!curr.contains(num)){
+                    curr.add(num);
+                    permutation1(nums, curr, result, length);
+                    curr.remove(curr.size()-1);
+                }
+            }
+        }
+    }
+
 
 }
