@@ -82,7 +82,7 @@ public class LeetCode200_numberOfIslands {
              * visited == false
              * grid == 1
              */
-            if (i >= 0 && i < grid.length && j>= 0 && j < grid[i].length && visited[i][j] != true && grid[i][j] == '1') {
+            if (i >= 0 && i < grid.length && j>= 0 && j < grid[i].length && !visited[i][j] && grid[i][j] == '1') {
                 visited[i][j] = true;
                 System.out.println("visited[" + i + "][" + j + "]");
 

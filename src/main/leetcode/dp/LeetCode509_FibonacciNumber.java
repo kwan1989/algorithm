@@ -9,7 +9,7 @@ public class LeetCode509_FibonacciNumber {
 
     public static int fib(int n) {
 
-        if (n==0){
+        if (n == 0) {
             return 0;
         }
 

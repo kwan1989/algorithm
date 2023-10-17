@@ -1,9 +1,5 @@
 package leetcode.etc;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class LeetCode08_StringToInteger {
 
     public static void main(String[] args) {

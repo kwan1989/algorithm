@@ -3,9 +3,9 @@ package leetcode.dp;
 public class LeetCode05_LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        //String s = "babad";
+        String s = "babad";
         //String s = "cbbd";
-        String s = "ac";
+//        String s = "ac";
 
         System.out.println(longestPalindrome(s));
     }
@@ -19,8 +19,8 @@ public class LeetCode05_LongestPalindromicSubstring {
         String result = "";
 
         for (int i = 0; i < s.length(); i++) {
-            String palindromeOdd = findPalindrome(s, i,i);
-            String palindromeEven = findPalindrome(s, i,i+1);
+            String palindromeOdd = findPalindrome(s, i, i);
+            String palindromeEven = findPalindrome(s, i, i + 1);
 
 
             if (result.length() < palindromeOdd.length()) {
@@ -44,5 +44,4 @@ public class LeetCode05_LongestPalindromicSubstring {
 
         return s.substring(left + 1, right);
     }
-
 }

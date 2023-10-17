@@ -13,12 +13,12 @@ public class LeetCode224_BasicCalculator {
         String s5 = "  30";
         String s6 = "1-(     -2)";
 
-        System.out.println(calculate(s1));
-        System.out.println(calculate(s2));
-        System.out.println(calculate(s3));
-        System.out.println(calculate(s4));
-        System.out.println(calculate(s5));
-//        System.out.println(calculate(s6));        // 이 문제에서 터짐..
+//        System.out.println(calculate(s1));
+//        System.out.println(calculate(s2));
+//        System.out.println(calculate(s3));
+//        System.out.println(calculate(s4));
+//        System.out.println(calculate(s5));
+        System.out.println(calculate(s6));        // 이 문제에서 터짐..
 
 //        System.out.println(calculate1(s1));
 //        System.out.println(calculate1(s2));
@@ -47,7 +47,6 @@ public class LeetCode224_BasicCalculator {
 
         return postfix.length() == stack.size() ? Integer.valueOf(postfix) : stack.pop();
     }
-
 
     public static String convertToPostfix(String infix) {
 

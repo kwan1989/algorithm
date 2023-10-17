@@ -1,6 +1,7 @@
 package leetcode.binarysearch;
 
 import java.util.Arrays;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 /**
@@ -47,7 +48,7 @@ public class LeetCode33_SearchinRotatedSortedArray {
 
     public static int search(int[] nums, int target) {
         int result = -1;
-        int min = Arrays.stream(nums).min().orElseThrow();
+        OptionalInt min = Arrays.stream(nums).min();
         int pivot = Arrays.stream(nums).boxed().collect(Collectors.toList()).indexOf(min);
 
         int leftDiff = Math.abs(target - nums[0]);
