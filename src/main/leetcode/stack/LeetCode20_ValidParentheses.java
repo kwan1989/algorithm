@@ -17,19 +17,18 @@ public class LeetCode20_ValidParentheses {
 
         for (char c : s.toCharArray()) {
 
-            if (c== '(' || c =='{' || c == '['){
+            if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
             } else {
-
-                if (stack.empty()){
+                if (stack.empty()) {
                     return false;
                 }
 
-                if ( c== ')' && stack.peek() == '(') {
+                if (c == ')' && stack.peek() == '(') {
                     stack.pop();
-                } else if ( c== '}' && stack.peek() == '{') {
+                } else if (c == '}' && stack.peek() == '{') {
                     stack.pop();
-                }else if ( c== ']' && stack.peek() == '[') {
+                } else if (c == ']' && stack.peek() == '[') {
                     stack.pop();
                 } else {
                     return false;
