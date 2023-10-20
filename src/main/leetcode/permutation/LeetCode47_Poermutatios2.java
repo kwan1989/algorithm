@@ -24,17 +24,14 @@ public class LeetCode47_Poermutatios2 {
             result.add(new ArrayList<>(curr));
         } else {
             for (int i = 0; i < nums.length; i++) {
-                if (!used[i]) {
-
-                    if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-                        continue;
-                    }
-                    curr.add(nums[i]);
-                    used[i] = true;
-                    permutation(nums, used, curr, result, length);
-                    curr.remove(curr.size() - 1);
-                    used[i] = false;
+                if (used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1])) {
+                    continue;
                 }
+                curr.add(nums[i]);
+                used[i] = true;
+                permutation(nums, used, curr, result,length);
+                curr.remove(curr.size() - 1);
+                used[i] = false;
             }
         }
 
