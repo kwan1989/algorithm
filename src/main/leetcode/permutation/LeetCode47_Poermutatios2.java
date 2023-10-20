@@ -26,7 +26,7 @@ public class LeetCode47_Poermutatios2 {
             for (int i = 0; i < nums.length; i++) {
                 if (!used[i]) {
 
-                    if (i>0 && nums[i] == nums[i-1] && !used[i-1]){
+                    if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
                         continue;
                     }
                     curr.add(nums[i]);
