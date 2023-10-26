@@ -1,7 +1,5 @@
 package leetcode.twopointers;
 
-import java.util.Arrays;
-
 public class LeetCode209_MinimumSizeSubarraySum {
 
     public static void main(String[] args) {
@@ -11,6 +9,12 @@ public class LeetCode209_MinimumSizeSubarraySum {
 //        System.out.println(minSubArrayLen(11, new int[]{1, 2, 3, 4, 5})); // 0
     }
 
+    /**
+     * 내일 다시 못품 ㅜ
+     * @param target
+     * @param nums
+     * @return
+     */
     public static int minSubArrayLen(int target, int[] nums) {
         int start = 0;  // 시작 포인터
         int sum = 0;    // 부분 배열의 합
