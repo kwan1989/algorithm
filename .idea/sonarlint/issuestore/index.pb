@@ -31,8 +31,6 @@ q
 Asrc/main/leetcode/etc/LeetCode03_LongestPalindromicSubstring.java,0/8/08735f7c1d37ae820e0de84c76bdb9fa5efb30c1
 m
 =src/main/leetcode/etc/LeetCode04_MedianofTwoSortedArrays.java,d/c/dc04800bd35f525a61d491acc7af3e22fefbcc85
-\
-,src/main/leetcode/etc/LeetCode01_TwoSum.java,d/e/de03b58b212636bfbcaf4231000f2f61eb85d480
 f
 6src/main/leetcode/etc/LeetCode06_ZigZagConversion.java,2/5/25e1b371a95c89d4246bdef5f86acb103457223a
 r
