@@ -6,9 +6,42 @@ import java.util.Queue;
 public class LeetCode934_ShortestBridge {
 
     public static void main(String[] args) {
-        System.out.println(shortestBridge(new int[][]{{1, 1, 1, 1, 1}, {1, 0, 0, 0, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {1, 1, 1, 1, 1}}));
+        System.out.println(shortestBridge(new int[][]{{0,1}, {1,0}}));  // 1
+        System.out.println(shortestBridge(new int[][]{{0,1,0}, {0,0,0}, {0,0,1}})); // 2
+        System.out.println(shortestBridge(new int[][]{{1, 1, 1, 1, 1}, {1, 0, 0, 0, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {1, 1, 1, 1, 1}})); // 1
     }
 
+    /**
+     * 문제 이해를 돕기 위해 설명 (example3 으로 설명)
+     *
+     * 1.   [1,1,1,1,1]
+     *      [1,0,0,0,1]
+     *      [1,0,1,0,1]
+     *      [1,0,0,0,1]
+     *      [1,1,1,1,1]
+     *  둘레에 연결된 섬(A)과 중앙에 섬(B)으로 2개의 섬으로 이루어져 있다.
+     *  목표는 A -> B 연결하는데 최소 연결 다리 개수 이다.
+     *
+     * 2.   [2,2,2,2,2]
+     *      [2,0,0,0,2]
+     *      [2,0,1,0,2]
+     *      [2,0,0,0,2]
+     *      [2,2,2,2,2]
+     *  첫번째 섬을 찾으면, 그 섬을 전부 2로 변경한다, 그리고 그 변경한 내역들을 전부 큐에 담아서 좌표값을 담는다. (각 포인트는 x,y,distance를 가지고 있다)
+     *  그리고 다음섬을 DFS로 검색할 필요가 없으므로 2중 반복문이므로 플레그를 주어 빠져나왔다.
+     *
+     * 3.   [2,2,2,2,2]
+     *      [2, , , ,2]
+     *      [2, ,1, ,2]
+     *      [2, , , ,2]
+     *      [2,2,2,2,2]
+     *  큐에는 다음과 같은 2의 값들이 정의 되어 있다. 결론적으로 2로 된 큐에서 1로 가는 가장 짧은거리를 찾으면된다, (BFS)
+     *  도달한 섬에 대해서는 각각의 위치에 2로 수정해주어 빈공간을 1의 섬에 편입해준다. 그러면서 거리가 추가될떄마다 큐에 dis + 1 값으로 추가해준다.
+     *  그러다가 1에 도달하면 현재까지 누적되어 연산된 dis 값을 반환한다. (BFS 의 빠른길찾기라고 생각하자)
+     *
+     * @param grid
+     * @return
+     */
     public static int shortestBridge(int[][] grid) {
         boolean[][] visited = new boolean[grid.length][grid[0].length];
         Queue<Point> queue = new LinkedList<>();
