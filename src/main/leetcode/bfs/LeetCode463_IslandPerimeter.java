@@ -31,6 +31,9 @@ public class LeetCode463_IslandPerimeter {
                     break;
                 }
             }
+            if (!queue.isEmpty()){
+                break;
+            }
         }
 
         while (!queue.isEmpty()) {
