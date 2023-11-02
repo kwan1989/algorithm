@@ -33,7 +33,7 @@ public class LeetCode55_JumpGame {
         //int[] nums = {2, 3, 1, 1, 4};
         //int[] nums = {3, 2, 1, 0, 4};
         //int[] nums = {0};
-        boolean result = canJump(nums);
+        System.out.println(canJump(nums));;
     }
 
     public static boolean canJump(int[] nums) {
