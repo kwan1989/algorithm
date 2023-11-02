@@ -1,9 +1,6 @@
 package leetcode.bfs;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class LeetCode2471_MinimumNumberofOperationstoSortaBinaryTreebyLevel {
 
@@ -20,6 +17,53 @@ public class LeetCode2471_MinimumNumberofOperationstoSortaBinaryTreebyLevel {
         root.right.right.left = new TreeNode(10);
 
         System.out.println(minimumOperations(root));
+        System.out.println(minimumOperations_new(root));
+    }
+
+    public static int minimumOperations_new(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int count = 0;
+
+        while(!queue.isEmpty()){
+
+            int size = queue.size();
+            List<Integer> depthList = new ArrayList<>();
+
+            for (int i = 0; i< size; i++){
+                TreeNode curr = queue.poll();
+                depthList.add(curr.val);
+
+                if(curr.left != null){
+                    queue.offer(curr.left);
+                }
+
+                if(curr.right != null){
+                    queue.offer(curr.right);
+                }
+            }
+            count += getSortSwapCount(depthList);
+        }
+        return count;
+    }
+
+    public static int getSortSwapCount (List<Integer> depthList){
+        List<Integer> depthListSort = new ArrayList<>(depthList);
+        int count = 0;
+
+        for (int i = 0; i < depthListSort.size()-1; i++){
+            int min = Collections.min(depthListSort.subList(i+1, depthListSort.size()));
+
+            if (depthListSort.get(i) > min){
+                int minIdx = depthListSort.indexOf(min);
+                int temp = depthListSort.get(i);
+                depthListSort.set(i, min);
+                depthListSort.set(minIdx, temp);
+
+                count++;
+            }
+        }
+        return count;
     }
 
     public static int minimumOperations(TreeNode root) {
