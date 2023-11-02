@@ -1,11 +1,12 @@
 package leetcode.binarysearch;
 
 import java.util.Arrays;
+import java.util.TreeSet;
 
 public class LeetCode1095_FindinMountainArray {
 
     // Your MountainArray implementation
-    class MountainArrayImpl implements MountainArray {
+   static class MountainArrayImpl implements MountainArray {
         private int[] mountainArray;
 
         // Initialize the mountain array with a given int array
@@ -39,46 +40,51 @@ public class LeetCode1095_FindinMountainArray {
     }
 
     public static void main(String[] args) {
-        int[] array1 = {1, 2, 3, 4, 5, 3, 1};
+        MountainArray array1 = new MountainArrayImpl(new int[] {1,2,3,4,5,3,1});
         int target1 = 3;
 
-        int[] array2 = {0,1,2,4,2,1};
+        MountainArray array2 = new MountainArrayImpl(new int[] {0,1,2,4,2,1});
         int target2 = 3;
         System.out.println(findInMountainArray(target1, array1));
         System.out.println(findInMountainArray(target2, array2));
     }
 
-    public static int findInMountainArray(int target, int[] mountainArr) {
-        int maxValueIdx = getMaxValueIdx(mountainArr);
-        int findFirst = binarySearch(mountainArr, target, 0, maxValueIdx, true);
-        int findSecond = binarySearch(mountainArr, target, maxValueIdx, mountainArr.length - 1, false);
-        return Math.min(findFirst, findSecond);
+    public static int findInMountainArray(int target, MountainArray mountainArr) {
+        int max = getMaxValueIndex(mountainArr);
+
+        int first = binarySearch(target, mountainArr, 0, max, true);
+
+        if (first != -1){
+            return first;
+        }
+
+        return binarySearch(target, mountainArr, max, mountainArr.length()-1, false);
     }
 
-    public static int getMaxValueIdx(int[] arr) {
-        int max = arr[0];
-        int idx = 0;
-        for (int i = 1; i < arr.length; i++) {
-            if (max < arr[i]) {
-                max = arr[i];
-                idx = i;
+    public static int getMaxValueIndex (MountainArray mountainArr){
+        int left = 0;
+        int right = mountainArr.length() - 1;
+
+        while(left < right){
+            int mid = left + (right-left) / 2;
+
+            if (mountainArr.get(mid) < mountainArr.get(mid+1)){
+                left = mid + 1;
+            } else {
+                right = mid;
             }
         }
-        return idx;
+        return left;
     }
 
-    public static int binarySearch(int[] arr, int target, int startIdx, int endIdx, boolean orderASC) {
-        int left = startIdx;
-        int right = endIdx;
-
-        while (left <= right) {
+    public static int binarySearch(int target, MountainArray mountainArr, int left, int right, boolean orderASC){
+        while(left <= right){
             int mid = left + (right - left) / 2;
-            if (arr[mid] == target) {
-                // 원하는 값 찾음, 인덱스 반환
-                return mid;
-            } else if (arr[mid] < target) {
 
-                if (orderASC) {
+            if(mountainArr.get(mid) == target){
+                return mid;
+            } else if(mountainArr.get(mid) < target){
+                if(orderASC){
                     // [오름차순] 목표값이 중앙값보다 크므로 오른쪽으로 이동
                     left = mid + 1;
                 } else {
@@ -86,7 +92,7 @@ public class LeetCode1095_FindinMountainArray {
                     right = mid - 1;
                 }
             } else {
-                if (orderASC) {
+                if(orderASC){
                     // [오름차순] 목표값이 중앙값보다 작으므로 왼쪽으로 이동
                     right = mid - 1;
                 } else {
@@ -97,5 +103,4 @@ public class LeetCode1095_FindinMountainArray {
         }
         return -1;
     }
-
 }
