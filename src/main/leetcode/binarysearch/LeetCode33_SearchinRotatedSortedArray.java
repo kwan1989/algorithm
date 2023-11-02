@@ -1,6 +1,8 @@
 package leetcode.binarysearch;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
@@ -47,34 +49,18 @@ public class LeetCode33_SearchinRotatedSortedArray {
     }
 
     public static int search(int[] nums, int target) {
-        int result = -1;
-        OptionalInt min = Arrays.stream(nums).min();
-        int pivot = Arrays.stream(nums).boxed().collect(Collectors.toList()).indexOf(min);
+        int start = 0;
+        int end = nums.length -1;
 
-        int leftDiff = Math.abs(target - nums[0]);
-        int rightDiff = Math.abs(target - nums[nums.length - 1]);
-
-        if ((nums[nums.length - 1] >= target && rightDiff < leftDiff) || pivot == 0) {
-            result = binarySearch(nums, pivot, nums.length - 1, target);
-        } else if (target >= nums[0] && leftDiff <= rightDiff) {
-            result = binarySearch(nums, 0, Math.max(pivot - 1, 0), target);
+        while (start <= end){
+            if (nums[start] == target){
+                return start;
+            } else if (nums[end] == target){
+                return end;
+            }
+            start++;
+            end--;
         }
-
-        return result;
-    }
-
-    public static int binarySearch(int[] nums, int start, int end, int target) {
-        if (end < start)
-            return -1;
-
-        int mid = (start + end) / 2;
-
-        if (nums[mid] > target) {
-            return binarySearch(nums, start, mid - 1, target);
-        } else if (nums[mid] < target) {
-            return binarySearch(nums, mid + 1, end, target);
-        } else {
-            return mid;
-        }
+        return -1;
     }
 }
