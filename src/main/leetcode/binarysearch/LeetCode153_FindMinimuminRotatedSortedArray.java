@@ -7,14 +7,15 @@ public class LeetCode153_FindMinimuminRotatedSortedArray {
     public static void main(String[] args) {
 
 //        int[] nums = {3,4,5,1,2};
-        int[] nums = {11,13,15,17};
+//        int[] nums = {11,13,15,17};
+        int[] nums = {4, 5, 6, 7, 0, 1, 2};
 
 //        System.out.println(findMin(nums));
         System.out.println(findMin_retry(nums));
     }
 
     public static int findMin(int[] nums) {
-      return  Arrays.stream(nums).min().getAsInt();
+        return Arrays.stream(nums).min().getAsInt();
     }
 
     public static int findMin_retry(int[] nums) {
@@ -34,6 +35,7 @@ public class LeetCode153_FindMinimuminRotatedSortedArray {
                 // 회전된 부분은 mid의 왼쪽에 존재 or mid 자체가 최솟값
                 right = mid;
             }
+            System.out.println(left + " | " + right);
         }
 
         // left 인덱스에는 최솟값이 저장되어 있음
@@ -41,13 +43,13 @@ public class LeetCode153_FindMinimuminRotatedSortedArray {
     }
 
 
-    public static int[] rotate(int[] nums, boolean directionRight, int count){
+    public static int[] rotate(int[] nums, boolean directionRight, int count) {
         int[] temp = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
 
             int point = (i + count) % nums.length;
 
-            if (directionRight){
+            if (directionRight) {
                 temp[point] = nums[i];
             } else {
                 temp[i] = nums[point];

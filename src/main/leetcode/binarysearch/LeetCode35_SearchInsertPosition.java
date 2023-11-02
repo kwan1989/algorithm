@@ -1,7 +1,5 @@
 package leetcode.binarysearch;
 
-import java.util.Arrays;
-
 public class LeetCode35_SearchInsertPosition {
 
     public static void main(String[] args) {
