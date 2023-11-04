@@ -19,7 +19,19 @@ public class LeetCode53_MaximumSubarray {
         System.out.println(maxSubArray(nums7));
     }
 
+
     public static int maxSubArray(int[] nums) {
+        int sum = nums[0];
+        int currSum = nums[0];
+
+        for(int i = 1; i < nums.length; i++){
+            currSum = Math.max(nums[i], currSum+nums[i]);
+            sum = Math.max(sum, currSum);
+        }
+        return sum;
+    }
+
+    public static int maxSubArray2(int[] nums) {
         int idx = 0;
         int max = Integer.MIN_VALUE;
         int sum = 0;
