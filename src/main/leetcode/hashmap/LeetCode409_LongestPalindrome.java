@@ -1,4 +1,4 @@
-package leetcode.twopointers;
+package leetcode.hashmap;
 
 import java.util.*;
 
@@ -56,4 +56,32 @@ public class LeetCode409_LongestPalindrome {
 
         return count;
     }
+
+//    public static int longestPalindromeMap(String s) {
+//        Map<Character, Integer> map = new HashMap<>();
+//        int count = 0;
+//        for (char c : s.toCharArray()) {
+//            map.put(c, map.getOrDefault(c, 0) + 1);
+//        }
+//
+//        List<Character> keys = new ArrayList<>(map.keySet());
+//        Collections.sort(keys, (v1, v2) -> map.get(v2).compareTo(map.get(v1)));
+//
+//        for (char key : keys) {
+//            int val = map.get(key);
+//
+//            if (val == 1) {
+//                count += 1;
+//                break;
+//            }
+//
+//            if (val % 2 == 0) {
+//                count += val;
+//            } else {
+//                count += (val / 2) * 2;
+//            }
+//        }
+//
+//        return count;
+//    }
 }
