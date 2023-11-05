@@ -10,6 +10,7 @@ public class LeetCode973_KClosestPointstoOrigin {
         int k = 3;
 
         System.out.println(Arrays.deepToString(kClosest(points,k)));
+
     }
 
     public static int[][] kClosest(int[][] points, int k) {
