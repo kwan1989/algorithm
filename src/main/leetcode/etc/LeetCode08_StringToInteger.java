@@ -19,14 +19,36 @@ public class LeetCode08_StringToInteger {
 //        System.out.println(result);
 
 
-        System.out.println(myAtoi_retry("42"));
-        System.out.println(myAtoi_retry(" -42"));
-        System.out.println(myAtoi_retry("4193 with words"));
-        System.out.println(myAtoi_retry("words and 987"));
-        System.out.println(myAtoi_retry("-91283472332"));
-        System.out.println(myAtoi_retry("3.14159"));
-        System.out.println(myAtoi_retry("+-12"));
+//        System.out.println(myAtoi_retry("42"));
+//        System.out.println(myAtoi_retry(" -42"));
+//        System.out.println(myAtoi_retry("4193 with words"));
+//        System.out.println(myAtoi_retry("words and 987"));
+//        System.out.println(myAtoi_retry("-91283472332"));
+//        System.out.println(myAtoi_retry("3.14159"));
+//        System.out.println(myAtoi_retry("+-12"));
 
+//        System.out.println(myAtoi("42"));
+//        System.out.println(myAtoi("   -42"));
+        System.out.println(myAtoi("words and 987"));
+
+    }
+
+    public static int myAtoi(String s) {
+        boolean isNegative = s.contains("-");
+        StringBuilder sb = new StringBuilder();
+        for(char c : s.toCharArray()){
+            if(Character.isDigit(c)){
+                sb.append(c);
+            }
+        }
+        int result = 0;
+        for (int i = 0; i < sb.length(); i++) {
+            int value = Character.getNumericValue(sb.charAt(sb.length() - i - 1));
+            int digit = (int) Math.pow(10, i);
+            result += value * digit;
+        }
+
+        return isNegative ? result * -1 : result;
     }
 
     public static int myAtoi_retry(String s) {
@@ -44,7 +66,7 @@ public class LeetCode08_StringToInteger {
             if (Character.isDigit(s.charAt(i))) {
                 stringBuilder.append(s.charAt(i));
                 isNumberEnd = true;
-            } else if(isNumberEnd && !Character.isDigit(s.charAt(i))){
+            } else if (isNumberEnd && !Character.isDigit(s.charAt(i))) {
                 break;
             }
         }
@@ -73,7 +95,7 @@ public class LeetCode08_StringToInteger {
         return false;
     }
 
-    public static int myAtoi(String s) {
+    public static int myAtoi1(String s) {
 
         int result = 0;
         int i = 0;

@@ -58,7 +58,7 @@ public class LeetCode200_numberOfIslands {
                 for (int j = 0; j < grid[0].length; j++) {
 
                     // 방문하지 않고 물이 아닌 지역만
-                    if (visited[i][j] == false && grid[i][j] == '1') {
+                    if (!visited[i][j] && grid[i][j] == '1') {
                         dfs(grid, visited, i, j);
                         result++;
                     }

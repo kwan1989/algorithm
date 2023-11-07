@@ -50,7 +50,8 @@ public class LeetCode463_IslandPerimeter {
                         || nextRow >= row
                         || nextCol < 0
                         || nextCol >= col
-                        || grid[nextRow][nextCol] == 0) {
+                        || grid[nextRow][nextCol] == 0)
+                {
                     count++;
                 } else if (!visited[nextRow][nextCol]) {
                     queue.offer(new Node(nextRow, nextCol));

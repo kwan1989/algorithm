@@ -55,7 +55,6 @@ public class LeetCode1971_FindifPathExistsinGraph {
             List<Integer> list = graph.get(v);
 
             for (int node : list) {
-
                 if (!visited[node]) {
                     q.offer(node);
                     visited[node] = true;
