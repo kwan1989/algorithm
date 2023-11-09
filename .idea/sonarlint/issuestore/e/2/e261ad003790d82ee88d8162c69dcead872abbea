@@ -1,20 +1,0 @@
-
-n
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠƒÆ
-2
-java:S1643"Use a StringBuilder instead.(òß‰
-7
-java:S1643%"Use a StringBuilder instead.(æ½‡Èúÿÿÿÿ
-2
-java:S1643'"Use a StringBuilder instead.(«Ä–Õ
-o
-java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "s".(°ıª
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¾«ƒ
-P
-java:S1118":Add a private constructor to hide the implicit public one.(¾«ƒ
-W
-java:S3457"AFormat specifiers should be used instead of string concatenation.(°ıª
-Q	java:S125""<This block of commented-out lines of code should be removed.(ïı‹•
-I
-java:S1481.".Remove this unused "strReturn" local variable.(¼Åì˜ùÿÿÿÿ
-V	java:S125/"<This block of commented-out lines of code should be removed.(šÄÈıÿÿÿÿ

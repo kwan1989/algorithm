@@ -1,8 +1,0 @@
-
-7
-java:S1643"Use a StringBuilder instead.(Îþã¼ÿÿÿÿÿ
-g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÄœýÄüÿÿÿÿ
-U
-java:S1118":Add a private constructor to hide the implicit public one.(ÄœýÄüÿÿÿÿ
->
-java:S1125"(Remove the unnecessary boolean literals.(…ŽÆò
