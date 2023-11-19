@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LeetCdoe648_ReplaceWords {
+public class LeetCode648_ReplaceWords {
 
     public static void main(String[] args) {
         List<String> dictionary1 = Arrays.asList("cat", "bat", "rat");
