@@ -26,7 +26,7 @@ public class LeetCode15_3Sum {
                     result.add(Arrays.asList(nums[i], nums[j], nums[k]));
                     j++;
                     k--;
-                } else if(sum < 0){
+                } else if (sum < 0) {
                     j++;
                 } else {
                     k--;
@@ -57,5 +57,31 @@ public class LeetCode15_3Sum {
             }
         }
         return new ArrayList<>(threeSumSet);
+    }
+
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        Set<List<Integer>> set = new HashSet<>();
+
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            int j = i + 1;
+            int k = nums.length - 1;
+
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum ==0){
+                    set.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+                    k--;
+                } else if (sum > 0){
+                    k--;
+                } else {
+                    j++;
+                }
+            }
+        }
+
+        return new ArrayList<>(set);
     }
 }
