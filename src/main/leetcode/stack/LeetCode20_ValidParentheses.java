@@ -38,4 +38,31 @@ public class LeetCode20_ValidParentheses {
 
         return stack.empty();
     }
+
+    public static boolean isValid_1(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else {
+
+                if (stack.isEmpty()){
+                    return false;
+                }
+
+                if (c == ')' && stack.peek() == '(') {
+                    stack.pop();
+                } else if (c == ']' && stack.peek() == '[') {
+                    stack.pop();
+                } else if (c == '}' && stack.peek() == '{') {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return stack.isEmpty();
+    }
 }
