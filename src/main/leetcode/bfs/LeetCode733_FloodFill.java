@@ -73,6 +73,35 @@ public class LeetCode733_FloodFill {
         return image;
     }
 
+    public int[][] floodFill_1(int[][] image, int sr, int sc, int color) {
+        boolean[][] visited = new boolean[image.length][image[0].length];
+        int originalColor = image[sr][sc];
+
+        return dfs_1(image, sr, sc, visited, originalColor, color);
+    }
+
+    static final int[][] MOVES = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    public static int[][] dfs_1(int[][] image, int r, int c, boolean[][] visited, int originalColor, int newColor) {
+        if (r >= 0 && r < image.length
+                && c >= 0 && c < image[0].length
+                && !visited[r][c]
+                && image[r][c] == originalColor
+        ) {
+            visited[r][c] = true;
+            image[r][c] = newColor;
+
+            for (int[] move : MOVES) {
+                int nextRow = r + move[0];
+                int nextCol = c + move[1];
+
+                dfs_1(image, nextRow, nextCol, visited, originalColor, newColor);
+            }
+        }
+
+        return image;
+    }
+
     /**
      * BFS
      *
