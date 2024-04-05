@@ -2,22 +2,24 @@ package leetcode.greedy;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class LeetCode322_CoinChange {
     public static void main(String[] args) {
 
-//        int[] coins = {1, 2, 5};
-//        int amount = 11;
+        int[] coins = {1, 2, 5};
+        int amount = 11;
 
 //        int[] coins = {1};
 //        int amount = 0;
 
-        int[] coins = {186, 419, 83, 408};
-        int amount = 6249;
+//        int[] coins = {186, 419, 83, 408};
+//        int amount = 6249;
 
 
 //        System.out.println(coinChange(coins, amount));
-        System.out.println(coinChange_1(coins, amount));
+//        System.out.println(coinChange_1(coins, amount));
+        System.out.println(coinChange_2(coins, amount));
     }
 
     /*
@@ -74,6 +76,22 @@ public class LeetCode322_CoinChange {
         }
 
         return dp[amount] > amount ? -1 : dp[amount];
+    }
+
+    public static int coinChange_2(int[] coins, int amount) {
+        Arrays.sort(coins);
+
+        int currAmount = amount;
+        int count = 0;
+
+        for (int i = coins.length - 1; i >= 0; i--) {
+            count += currAmount / coins[i];
+            currAmount = currAmount % coins[i];
+        }
+
+        //시간복잡도 터짐 + 엣지케이스
+
+        return count;
     }
 
 
