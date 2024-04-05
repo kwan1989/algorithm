@@ -13,14 +13,15 @@ public class LeetCode150_EvaluateReversePolishNotation {
         String[] tokens2 = {"4", "13", "5", "/", "+"};
         String[] tokens3 = {"18"};
 
-        System.out.println(evalRPN(tokens1));
-        System.out.println(evalRPN(tokens2));
-        System.out.println(evalRPN(tokens3));
+//        System.out.println(evalRPN(tokens1));
+//        System.out.println(evalRPN(tokens2));
+//        System.out.println(evalRPN(tokens3));
+        System.out.println(evalRPN_1(tokens1));
     }
 
     public static int evalRPN(String[] tokens) {
 
-        if (tokens.length == 1){
+        if (tokens.length == 1) {
             return Integer.valueOf(tokens[0]);
         }
 
@@ -36,7 +37,7 @@ public class LeetCode150_EvaluateReversePolishNotation {
                 int num2 = stack.pop();
                 int num1 = stack.pop();
 
-                result = operators.get(tokens[i]).apply(num1,num2);
+                result = operators.get(tokens[i]).apply(num1, num2);
                 stack.push(result);
             }
         }
@@ -53,6 +54,39 @@ public class LeetCode150_EvaluateReversePolishNotation {
         operators.put("/", (a, b) -> (a / b));
 
         return operators;
+    }
+
+    public static int evalRPN_1(String[] tokens) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        Set<String> set = new HashSet<>(Arrays.asList("+", "-", "*", "/"));
+
+        for (String token : tokens) {
+            if (!set.contains(token)){
+                // 숫자
+                stack.push(Integer.parseInt(token));
+            } else {
+                // 기호
+                int num2 = stack.pop();
+                int num1 = stack.pop();
+                int result = 0;
+
+                if (token.equals("+")) {
+                    result = num1 + num2;
+                } else if (token.equals("-")) {
+                    result = num1 - num2;
+                } else if (token.equals("*")) {
+                    result = num1 * num2;
+                } else {
+                    result = num1 / num2;
+                }
+
+                stack.push(result);
+            }
+        }
+
+        return stack.pop();
     }
 
 
