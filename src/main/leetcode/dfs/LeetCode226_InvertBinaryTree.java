@@ -56,4 +56,25 @@ public class LeetCode226_InvertBinaryTree {
         return root;
     }
 
+    public static TreeNode invertTree1(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        swap1(root);
+
+        invertTree1(root.left);
+        invertTree1(root.right);
+
+        return root;
+    }
+
+    public static TreeNode swap1(TreeNode root) {
+        TreeNode tmp = root.left;
+        tmp.left = root.right;
+        root.right = tmp;
+
+        return root;
+    }
+
 }
