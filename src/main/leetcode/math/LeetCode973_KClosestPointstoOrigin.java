@@ -6,10 +6,10 @@ import java.util.PriorityQueue;
 public class LeetCode973_KClosestPointstoOrigin {
 
     public static void main(String[] args) {
-        int[][] points = {{3,3},{5,-1},{-2,4}};
+        int[][] points = {{3, 3}, {5, -1}, {-2, 4}};
         int k = 3;
 
-        System.out.println(Arrays.deepToString(kClosest(points,k)));
+        System.out.println(Arrays.deepToString(kClosest(points, k)));
 
     }
 
@@ -19,7 +19,7 @@ public class LeetCode973_KClosestPointstoOrigin {
         PriorityQueue<int[]> pq = new PriorityQueue<>(
                 // 동일한방법
 //                (p1, p2) -> (p2[0] * p2[0] + p2[1] * p2[1]) - (p1[0] * p1[0] + p1[1] * p1[1])
-                (p1, p2) -> (int) ((Math.pow(p2[0],2) + Math.pow(p2[1],2)) - (Math.pow(p1[0],2) + Math.pow(p1[1],2)))
+                (p1, p2) -> (int) ((Math.pow(p2[0], 2) + Math.pow(p2[1], 2)) - (Math.pow(p1[0], 2) + Math.pow(p1[1], 2)))
         );
 
         for (int[] point : points) {
@@ -40,9 +40,29 @@ public class LeetCode973_KClosestPointstoOrigin {
 //        return result;
     }
 
+    public static int[][] kClosest_1(int[][] points, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>(
+                (p1, p2) -> (int) (Math.pow(p2[0],2) + Math.pow(p1[0],2) - Math.pow(p2[1],2) + Math.pow(p1[1],2))
+        );
+
+        // 모든 점들을 우선순위 큐에 추가합니다.
+        for (int[] point : points) {
+            pq.offer(point);
+        }
+
+        // 결과를 저장할 배열을 생성합니다.
+        int[][] result = new int[k][2];
+        for (int i = 0; i < k; i++) {
+            result[i] = pq.poll();
+        }
+
+        return result;
+    }
+
     /**
      * 유클리디안 거리계산
      * sqrt((x2 - x1)² + (y2 - y1)²)
+     *
      * @param point1
      * @param point2
      * @return
