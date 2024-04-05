@@ -22,4 +22,19 @@ public class LeetCode169_MajorityElement {
         }
         return 0;
     }
+
+    public static int majorityElement_1(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int key : map.keySet()){
+            if (map.get(key) > nums.length/2){
+                return key;
+            }
+        }
+        return 0;
+    }
 }
