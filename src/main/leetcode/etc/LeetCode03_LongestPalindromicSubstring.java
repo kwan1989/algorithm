@@ -12,10 +12,12 @@ public class LeetCode03_LongestPalindromicSubstring {
         String s3 = "aaaabaaaaaa";
         String s4 = "abb";
 
-        System.out.println(lengthOfLongestSubstring(s4));
+//        System.out.println(lengthOfLongestSubstring(s4));
 //        System.out.println(lengthOfLongestSubstring_builder(s));
 //        System.out.println(lengthOfLongestSubstring(s1));
 //        System.out.println(lengthOfLongestSubstring(s2));
+
+        System.out.println(lengthOfLongestSubstring_1(s2));
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -59,4 +61,26 @@ public class LeetCode03_LongestPalindromicSubstring {
 
         return count;
     }
+
+    public static int lengthOfLongestSubstring_1(String s) {
+        int left =0;
+        int right = 0;
+        int max = 0;
+        Set<Character> set = new HashSet<>();
+
+        while(left < s.length()){
+            char c = s.charAt(left);
+
+            if(!set.contains(c)){
+                set.add(c);
+                max = Math.max(max, set.size());
+                left++;
+            } else {
+                set.remove(s.charAt(right));
+                right++;
+            }
+        }
+        return max;
+    }
+
 }
