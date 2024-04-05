@@ -38,15 +38,19 @@ public class LeetCode104_MaximumDepthofBinaryTree {
     }
 
     public static int maxDepth(TreeNode root) {
-        if ( root == null){
+        if (root == null) {
             return 0;
         }
 
-        return
-                Math.max(
-                        maxDepth(root.left),
-                        maxDepth(root.right)
-                ) + 1;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
+
+    public static int maxDepth_1(TreeNode root) {
+        if (root == null){
+            return 0;
+        }
+
+        return Math.max(maxDepth_1(root.left), maxDepth_1(root.right))+1;
     }
 
 }
