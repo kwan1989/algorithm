@@ -40,8 +40,8 @@ public class LeetCode125_ValidPalindrome {
         int right = chars.length - 1;
 
 
-        while(left < right){
-            if (chars[left] != chars[right]){
+        while (left < right) {
+            if (chars[left] != chars[right]) {
                 return false;
             }
 
@@ -51,14 +51,37 @@ public class LeetCode125_ValidPalindrome {
         return true;
     }
 
-    public static String getString1 (String s){
+    public static String getString1(String s) {
         StringBuilder stringBuilder = new StringBuilder();
-            for (char c : s.toCharArray()) {
-             if(Character.isLetterOrDigit(c)){
-                 stringBuilder.append(c);
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                stringBuilder.append(c);
             }
         }
-            return stringBuilder.toString().toUpperCase();
+        return stringBuilder.toString().toUpperCase();
+    }
+
+    public static boolean isPalindrome2(String s) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                stringBuilder.append(c);
+            }
+        }
+
+        char[] chars = stringBuilder.toString().toLowerCase().toCharArray();
+        int left = 0;
+        int right = chars.length-1;
+
+        while (left < right){
+            if (chars[left] != chars[right]){
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+        return true;
     }
 
 }
