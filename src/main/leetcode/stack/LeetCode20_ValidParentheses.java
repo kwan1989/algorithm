@@ -1,5 +1,8 @@
 package leetcode.stack;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class LeetCode20_ValidParentheses {
@@ -52,6 +55,33 @@ public class LeetCode20_ValidParentheses {
                 }
 
                 if (c == ')' && stack.peek() == '(') {
+                    stack.pop();
+                } else if (c == ']' && stack.peek() == '[') {
+                    stack.pop();
+                } else if (c == '}' && stack.peek() == '{') {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    public static boolean isValid_2(String s) {
+        Stack<Character> stack = new Stack<>();
+        Set<Character> open = Set.of('(', '[', '{');
+
+        for (char c : s.toCharArray()){
+            if (open.contains(c)){
+                stack.push(c);
+            } else {
+                if(stack.isEmpty()){
+                    return false;
+                }
+
+                if( c ==')' && stack.peek() == '('){
                     stack.pop();
                 } else if (c == ']' && stack.peek() == '[') {
                     stack.pop();
