@@ -43,7 +43,7 @@ public class LeetCode01_TwoSum {
             int complement = target - nums[i];
 
             if (numMap.containsKey(complement)) {
-                return new int[] { numMap.get(complement), i };
+                return new int[]{numMap.get(complement), i};
             }
 
             numMap.put(nums[i], i);
@@ -55,17 +55,34 @@ public class LeetCode01_TwoSum {
     public static int[] twoSum_operation1(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i< nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             int minusNumber = target - nums[i];
 
-            if (map.containsKey(minusNumber)){
+            if (map.containsKey(minusNumber)) {
+                return new int[]{map.get(minusNumber), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        return new int[]{0, 0};
+    }
+
+    public static int[] twoSum_operation2(int[] nums, int target) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int minusNumber = target - nums[i];
+
+            if(map.containsKey(minusNumber)) {
                 return new int[] {map.get(minusNumber), i};
             }
 
             map.put(nums[i], i);
         }
 
-        return new int[] {0,0};
+        return new int[]{0, 0};
     }
 
 }
