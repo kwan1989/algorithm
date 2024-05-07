@@ -45,15 +45,40 @@ public class LeetCode242_ValidAnagram {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        for (char c : t.toCharArray()){
-            if(map.containsKey(c)){
+        for (char c : t.toCharArray()) {
+            if (map.containsKey(c)) {
                 map.put(c, map.get(c) - 1);
             } else {
                 return false;
             }
 
-            if (map.get(c) == 0 ){
+            if (map.get(c) == 0) {
                 map.remove(c);
+            }
+        }
+
+        return map.isEmpty();
+    }
+
+    public static boolean isAnagram2(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : t.toCharArray()) {
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) - 1);
+                if(map.get(c) == 0){
+                    map.remove(c);
+                }
+            } else {
+                return false;
             }
         }
 
