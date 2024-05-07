@@ -25,7 +25,7 @@ package leetcode.dp;
  * <p>
  * Constraints:
  * 1 <= n <= 45
- *
+ * <p>
  * Success
  * Details
  * Runtime: 0 ms, faster than 100.00% of Java online submissions for Climbing Stairs.
@@ -51,7 +51,7 @@ public class LeetCode70_ClimbingStairs {
          * 1,2,3,5,8
          * 피보나치 !?
          */
-        if (n< 2){
+        if (n < 2) {
             return n;
         }
 
@@ -66,4 +66,28 @@ public class LeetCode70_ClimbingStairs {
         return dp[dp.length - 1];
     }
 
+
+    public static int climbStairs_1(int n) {
+        /*
+        1 - 1
+        2 - 2
+        3 - 3
+        4 - 5
+         */
+
+        if (n < 2) {
+            return n;
+        }
+
+        int[] dp = new int[n];
+
+        dp[0] = 1;
+        dp[1] = 2;
+
+        for (int i = 2; i < n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        return dp[n - 1];
+    }
 }
