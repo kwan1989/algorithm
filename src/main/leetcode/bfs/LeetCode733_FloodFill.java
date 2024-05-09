@@ -53,6 +53,28 @@ public class LeetCode733_FloodFill {
         return image;
     }
 
+    public static int[][] floodFill_dfs2(int[][] image, int sr, int sc, int color) {
+        return dfs2(image,sr,sc, image[sr][sc], color, new boolean[image.length][image[0].length]);
+    }
+
+    static final int[][] DIRS ={{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    public static int[][] dfs2(int[][] image, int r, int c, int originColor, int newColor, boolean[][] visited) {
+        if (r >= 0 && r < image.length
+                && c >= 0 && c < image[0].length
+                && image[r][c] == originColor
+                && !visited[r][c]
+        )
+        {
+            visited[r][c] = true;
+            image[r][c] = newColor;
+
+            for (int[] DIR : DIRS){
+                dfs2(image, r + DIR[0], c + DIR[1], originColor, newColor, visited);
+            }
+        }
+        return image;
+    }
+
     static final int[] DR = {-1, 1, 0, 0};
     static final int[] DC = {0, 0, -1, 1};
 
