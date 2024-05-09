@@ -2,6 +2,8 @@ package leetcode.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class LeetCode383_RansomNote {
 
@@ -12,14 +14,14 @@ public class LeetCode383_RansomNote {
     public static boolean canConstruct(String ransomNote, String magazine) {
         Map<Character, Integer> map = new HashMap<>();
 
-        for (char c : magazine.toCharArray()){
-            map.put(c, map.getOrDefault(c, 0) +1);
+        for (char c : magazine.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        for (char c : ransomNote.toCharArray()){
-            if (map.containsKey(c)){
-                if(map.get(c)-1 > 0){
-                    map.put(c, map.get(c)-1);
+        for (char c : ransomNote.toCharArray()) {
+            if (map.containsKey(c)) {
+                if (map.get(c) - 1 > 0) {
+                    map.put(c, map.get(c) - 1);
                 } else {
                     map.remove(c);
                 }
@@ -31,17 +33,17 @@ public class LeetCode383_RansomNote {
     }
 
     public static boolean canConstruct_1(String ransomNote, String magazine) {
-        Map<Character, Integer> map =new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
 
-        for (char c : magazine.toCharArray()){
-            map.put(c, map.getOrDefault(c,0) + 1);
+        for (char c : magazine.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        for (char c: ransomNote.toCharArray()){
-            if(map.containsKey(c)){
-                map.put(c, map.get(c) -1);
+        for (char c : ransomNote.toCharArray()) {
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) - 1);
 
-                if (map.get(c) < 0){
+                if (map.get(c) < 0) {
                     return false;
                 }
             } else {
@@ -52,5 +54,27 @@ public class LeetCode383_RansomNote {
         return true;
     }
 
+
+    public static boolean canConstruct_2(String ransomNote, String magazine) {
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (char c : magazine.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : ransomNote.toCharArray()) {
+            if (map.containsKey(c)){
+                map.put(c, map.get(c)-1);
+
+                if (map.get(c) == 0){
+                    map.remove(c);
+                }
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 }
