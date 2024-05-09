@@ -54,21 +54,21 @@ public class LeetCode733_FloodFill {
     }
 
     public static int[][] floodFill_dfs2(int[][] image, int sr, int sc, int color) {
-        return dfs2(image,sr,sc, image[sr][sc], color, new boolean[image.length][image[0].length]);
+        return dfs2(image, sr, sc, image[sr][sc], color, new boolean[image.length][image[0].length]);
     }
 
-    static final int[][] DIRS ={{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    static final int[][] DIRS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
     public static int[][] dfs2(int[][] image, int r, int c, int originColor, int newColor, boolean[][] visited) {
         if (r >= 0 && r < image.length
                 && c >= 0 && c < image[0].length
                 && image[r][c] == originColor
                 && !visited[r][c]
-        )
-        {
+        ) {
             visited[r][c] = true;
             image[r][c] = newColor;
 
-            for (int[] DIR : DIRS){
+            for (int[] DIR : DIRS) {
                 dfs2(image, r + DIR[0], c + DIR[1], originColor, newColor, visited);
             }
         }
@@ -168,6 +168,39 @@ public class LeetCode733_FloodFill {
                 ) {
                     queue.offer(new Node(nextRow, nextCol));
                     visited[nextRow][nextCol] = true;
+                }
+            }
+        }
+
+        return image;
+    }
+
+    public static int[][] floodFill_bfs2(int[][] image, int sr, int sc, int color) {
+        int r = image.length;
+        int c = image[0].length;
+        int originColor = image[sr][sc];
+        boolean[][] visited = new boolean[r][c];
+        int[][] DIRS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(new Node(sr, sc));
+
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+
+            if (image[node.row][node.col] == originColor && !visited[node.row][node.col]) {
+                image[node.row][node.col] = color;
+                visited[node.row][node.col] = true;
+
+                for (int[] DIR : DIRS) {
+                    int nextR = node.row + DIR[0];
+                    int nextC = node.col + DIR[1];
+
+                    if (nextR >= 0 && nextR < image.length
+                            && nextC >= 0 && nextC < image[0].length
+                    ) {
+                        queue.offer(new Node(nextR, nextC));
+                    }
                 }
             }
         }
