@@ -27,13 +27,42 @@ public class LeetCode67_AddBinary {
             int sum = bit1 + bit2 + carry;
 
             sb.append(sum % 2);
-            carry = sum/2;
+            carry = sum / 2;
         }
 
-        if(carry > 0){
+        if (carry > 0) {
             sb.append(carry);
         }
 
         return sb.reverse().toString();
+    }
+
+    public static String addBinary1(String a, String b) {
+        int maxLen = Math.max(a.length(), b.length());
+        StringBuilder result = new StringBuilder();
+        int carry = 0;
+
+        for (int i = 0; i < maxLen; i++) {
+            int bit1 = 0;
+            int bit2 = 0;
+
+            if (i < a.length()) {
+                bit1 = Character.getNumericValue(a.charAt(a.length() - 1 - i));
+            }
+
+            if (i < b.length()) {
+                bit2 = Character.getNumericValue(b.charAt(b.length() - 1 - i));
+            }
+
+            int sum = bit1 + bit2;
+            result.append(sum % 2);
+            carry = sum / 2;
+        }
+
+        if (carry > 0) {
+            result.append(carry);
+        }
+
+        return result.reverse().toString();
     }
 }
