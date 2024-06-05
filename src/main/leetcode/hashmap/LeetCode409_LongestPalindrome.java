@@ -11,7 +11,8 @@ public class LeetCode409_LongestPalindrome {
 //        System.out.println(longestPalindrome("abccccdd"));
 //        System.out.println(longestPalindrome("abccccdd"));
 //        System.out.println(longestPalindromeMap("bananas"));
-        System.out.println(longestPalindromeMap("aaabcaaa"));
+//        System.out.println(longestPalindromeMap("aaabcaaa"));
+        System.out.println(longestPalindromeMap("abccccdd"));
 
 //        System.out.println(longestPalindrome("ccc"));
 //        System.out.println(longestPalindromeMap("ccc"));

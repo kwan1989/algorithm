@@ -1,7 +1,5 @@
 package leetcode.stack;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 public class LeetCode232_ImplementQueueusingStacks {
@@ -40,9 +38,13 @@ public class LeetCode232_ImplementQueueusingStacks {
     }
 
     public int peek() {
-        if (output.empty())
-            while (!input.empty())
+        if (output.empty()) {
+            while (!input.empty()) {
                 output.push(input.pop());
+            }
+        }
+
+
         return output.peek();
     }
 
