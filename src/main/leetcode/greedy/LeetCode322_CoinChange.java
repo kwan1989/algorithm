@@ -1,8 +1,6 @@
 package leetcode.greedy;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class LeetCode322_CoinChange {
     public static void main(String[] args) {
@@ -59,7 +57,6 @@ public class LeetCode322_CoinChange {
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
-
     public static int coinChange_1(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
 
@@ -92,6 +89,26 @@ public class LeetCode322_CoinChange {
         //시간복잡도 터짐 + 엣지케이스
 
         return count;
+    }
+
+    public static int coinChange_3(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+
+        for (int i = 1; i < amount + 1; i++) {
+            for (int coin : coins) {
+                if (i - coin >= 0) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+
+        if (dp[amount] > amount) {
+            return -1;
+        }
+
+        return dp[amount];
     }
 
 
